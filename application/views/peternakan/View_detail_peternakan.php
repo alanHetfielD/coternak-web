@@ -109,7 +109,7 @@
            <?php if( !empty($store_info) ): ?>
           <div class="row">
             <div class="col-xs-6"> 
-              <h2> Kost : <?php echo $store_info[0]->store_name ?> </h2>
+              <h2> Peternakan : <?php echo $store_info[0]->store_name ?> </h2>
               <h4> Alamat : <?php echo $store_info[0]->store_address ?> </h4>
               <h4> <?php echo $store_info[0]->store_description ?> </h4>
            </div>

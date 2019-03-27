@@ -21,23 +21,20 @@ class User extends CI_Controller
             $result           = $this->m_login->login($data_user);
             if (!empty($result)) 
             {
-                // echo var_dump(  $result->user_status );
+                // echo var_dump(  $result[0]->user_status );
                 $result = $result[0];
                 if( $result->user_status != 0 )
                 {
-                    $data = array(
-                        'user_id' => $result->user_id,
-                        'user_username' => $result->user_username,
-                        'user_profile_fullname' => $result->user_profile_fullname,
-                        'user_level' => $result->user_level,
-                        'user_status' => $result->user_status
-                    );
+                        $data = array(
+                                'user_id' => $result->user_id,
+                                'user_username' => $result->user_username,
+                                'user_profile_fullname' => $result->user_profile_fullname,
+                                'user_level' => $result->user_level,
+                                'user_status' => $result->user_status,
+                                'user_profile_image_path' => $result->user_profile_image_path
+                                );
                     #Set value ke session
                     $this->session->set_userdata($data);
-                    $log['log_message'] .= "true";
-                    $log['user_id'] = $result->user_id;
-                    $this->m_log->inserLog( $log );
-
                     redirect(site_url(''));
                 }
                 $message = "anda belum di aktivasi !!!!";
@@ -47,9 +44,7 @@ class User extends CI_Controller
                 'from' => 0,
                 'message' =>  $message
             ));
-            $log['log_message'] .= "false =>".'Username atau password salah!';
-            $this->m_log->inserLog( $log );
-
+            echo $message;
             redirect(site_url('/user/login'));
 
         }else{

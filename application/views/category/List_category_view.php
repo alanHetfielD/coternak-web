@@ -146,6 +146,11 @@
                                                     <input type="text" class="form-control"  name="category_name" required="required" >
                                                 </div>
                                                 <div class="form-group">
+                                                    <label>Urutan</label>
+                                                    <color class="text-red"> *</color>
+                                                    <input type="text" class="form-control" value='<?php echo $category->category_order; ?>' name="category_order" required="required" >
+                                                </div>
+                                                <div class="form-group">
                                                     <label for="">Keterangan</label>
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
@@ -224,6 +229,11 @@
                                             <label>Nama Kategori</label>
                                             <color class="text-red"> *</color>
                                             <input type="text" class="form-control" value='<?php echo $category->category_name; ?>' name="category_name" required="required" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Urutan</label>
+                                            <color class="text-red"> *</color>
+                                            <input type="text" class="form-control" value='<?php echo $category->category_order; ?>' name="category_order" required="required" >
                                         </div>
                                         <div class="form-group">
                                             <label for="">Keterangan</label>

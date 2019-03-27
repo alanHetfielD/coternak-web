@@ -217,7 +217,15 @@ class Peternakan extends Admin_Controller {
   public function delete_peternakan() 
   {
         if( !($_POST) ) redirect(site_url(''));  
-
+        $data['files'] = $this->m_store->read( $this->session->userdata('user_id') );
+        if( count( $data['files'] ) <= 1  ){
+                $this->session->set_flashdata('info', array(
+                'from' => 0,
+                'message' =>  "minimal punya 1 store"
+                ));
+                redirect(site_url(''));
+                return ;
+        }
         $message="terjadi kesalahan saat menghapus data)";
         $data_store_param['store_id'] = $this->input->post('store_id');
 

@@ -77,42 +77,42 @@ class M_admin extends CI_Model{
 
         $sql = "
 
-                SELECT * from kost
+                SELECT * from store
 
                 WHERE user_id = '$user_id'
 
             ";
 
-        $kosts = $this->db->query($sql)->result();
-        foreach( $kosts as $kost )
+        $stores = $this->db->query($sql)->result();
+        foreach( $stores as $store )
         {
             $sql = "
 
-                SELECT * from kepemilikan
+                SELECT * from store_item
 
-                WHERE kost_id = '$kost->kost_id'
+                WHERE store_id = '$store->store_id'
 
             ";
 
-            $kamar = $this->db->query($sql)->result();
-            foreach( $kamar as $k )
+            $item = $this->db->query($sql)->result();
+            foreach( $item as $k )
             {
-                $this->db->delete( "kamar" , array(
+                $this->db->delete( "item" , array(
 
-                    'kamar_id' => $k->kamar_id
+                    'item_id' => $k->item_id
 
                 ));
             }
 
-            $this->db->delete( "kepemilikan" , array(
+            $this->db->delete( "store_item" , array(
 
-                'kost_id' => $kost->kost_id
+                'store_id' => $store->store_id
 
             ));
             
-            $this->db->delete( "kost" , array(
+            $this->db->delete( "store" , array(
 
-                'kost_id' => $kost->kost_id
+                'store_id' => $store->store_id
 
             )); 
         }

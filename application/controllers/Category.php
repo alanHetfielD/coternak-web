@@ -46,6 +46,7 @@ class Category extends Admin_Controller {
     
     $data_category['category_name'] = $this->input->post('category_name');
     $data_category['category_description'] = $this->input->post('category_description');
+    $data_category['category_order'] = $this->input->post('category_order');
 
     if( $this->m_category->insert( $data_category ) )
     {
@@ -70,6 +71,7 @@ class Category extends Admin_Controller {
     $data_category['category_id'] = $this->input->post('category_id');
     $data_category['category_name'] = $this->input->post('category_name');
     $data_category['category_description'] = $this->input->post('category_description');
+    $data_category['category_order'] = $this->input->post('category_order');
 
     $data_category_param['category_id'] = $data_category['category_id'];
 
